@@ -1,0 +1,34 @@
+openapi: "3.0.0"
+info:
+  title: Library Service API
+  version: "1.0"
+  description: API für eine Bibliothek
+
+paths:
+  /v1/books:
+    get:
+      summary: Alle Bücher abrufen
+      responses:
+        "200":
+          description: Erfolgreich
+
+    post:
+      summary: Neues Buch hinzufügen
+      responses:
+        "201":
+          description: Buch erstellt
+
+  /v1/books/{id}:
+    get:
+      summary: Ein Buch nach ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Buch gefunden
+        "404":
+          description: Nicht gefunden
